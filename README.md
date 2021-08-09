@@ -1,1 +1,1 @@
-> - [0809](./README/0809.MD) | &nbsp;JavaScript&nbsp; - 기초
+> - [0809](./README/0809.md) | &nbsp;JavaScript&nbsp; - 기초
