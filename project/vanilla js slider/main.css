@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 30px;
+  transform: translate(-50%,-50%);
+}
+
+.slider_Wrap {     
+  position: absolute;
+  width: 400px;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.slider_List {  
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;}
+.item { width: 400px; height: 400px; position: relative} 
