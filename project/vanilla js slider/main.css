@@ -10,7 +10,7 @@ p{
   font-size: 30px;
   transform: translate(-50%,-50%);
 }
-
+.wrap{height: 100%;}
 .slider_Wrap {     
   position: absolute;
   width: 400px;
@@ -24,4 +24,21 @@ p{
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;}
-.item { width: 400px; height: 400px; position: relative} 
+.item { width: 400px; height: 400px; position: relative}
+.next,
+.prev{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    border: 1px solid;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+} 
+.next {
+right: 30%;    
+}
+.prev {
+left: 30%;
+}
