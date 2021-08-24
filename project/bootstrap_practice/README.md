@@ -15,7 +15,7 @@
 - @import "../node_modules/bootstrap/scss/variables";
 - @import "../node_modules/bootstrap/scss/mixins";
 - @import "../node_modules/bootstrap/scss/root";
-     
+   
 - $theme-colors: (
   "primary":    $primary,
   "secondary":  yellowgreen,
