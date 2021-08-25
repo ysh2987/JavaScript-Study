@@ -7,7 +7,7 @@
 - 먼저 아이템 요소들을 일렬로 길게 세운다. css : flex로 구현
 - 보여줄 px만큼에 div 태그를 만들어 overflow:hidden을 이용한다.
 - 한칸 이동하기 위해서 클릭 버튼 한번당 translation : - 아이템 요소값을 준다.
-
+  
 ```html
 <!-- html 구조 -->
 <div class="wrap">
