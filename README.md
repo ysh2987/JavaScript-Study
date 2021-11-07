@@ -7,6 +7,6 @@
 > <kbd>JavaScript</kbd> [제어문](./README/8_controlStatement.md) <br>
 > <kbd>JavaScript</kbd> [타입변환과 단축평가](./README/9_typeChange.md) <br>
 > <kbd>JavaScript</kbd> [객체 리터럴](./README/10_objectLiteral.md) <br>
-> <kbd>JavaScript</kbd> [원시 타입과 객체 타입의 비교](./README/10_objectLiteral.md) <br>
-
+> <kbd>JavaScript</kbd> [원시 타입과 객체 타입의 비교](./README/11_primitiveImmutable.md) <br>
+> <kbd>JavaScript</kbd> [함수](./README/12_function.md) <br>
 
