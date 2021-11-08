@@ -9,4 +9,5 @@
 > <kbd>JavaScript</kbd> [객체 리터럴](./README/10_objectLiteral.md) <br>
 > <kbd>JavaScript</kbd> [원시 타입과 객체 타입의 비교](./README/11_primitiveImmutable.md) <br>
 > <kbd>JavaScript</kbd> [함수](./README/12_function.md) <br>
+> <kbd>JavaScript</kbd> [스코프](./README/13_scope.md) <br>
 
