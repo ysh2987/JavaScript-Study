@@ -14,4 +14,6 @@
 > <kbd>JavaScript</kbd> [let / const](./README/15_letConst.md) <br>
 > <kbd>JavaScript</kbd> [프로퍼티 어트리뷰트](./README/16_propertyAttribute.md) <br>
 > <kbd>JavaScript</kbd> [생성자 함수에 의한 객체 생성](./README/17_constructor.md) <br>
-> <kbd>JavaScript</kbd> [생성자 함수에 의한 객체 생성](./README/18_functionFirstObject.md) <br>
+> <kbd>JavaScript</kbd> [함수와 일급 객체](./README/18_functionFirstObject.md) <br>
+> <kbd>JavaScript</kbd> [프로토타입](./README/19_prototype.md) <br>
+> <kbd>JavaScript</kbd> [Strict Mode](./README/20_strictMode.md) <br>
