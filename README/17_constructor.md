@@ -73,10 +73,9 @@ function Circle (radius){
   if (!new.target){
     return new Circle(radius)
   };
-    this.x = 3
     this.radius = radius;
     this.getTest = function(){
-    return 3 
+    return 2 * this.radius 
   }
   
 }
