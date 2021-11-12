@@ -12,6 +12,7 @@
 ```javascript
 // 생성자 함수
 function Circle(radius){
+  this.country : 'korea'
   this.radius = radius
   this.getDiameter = function() {
     return 2 * this.radius
@@ -30,9 +31,16 @@ console.log(circle2.getDiameter()) // 20
 2. 인스턴스 초기화
 3. 인스턴스 반환
 
+- 인스턴스는 this에 바인딩된다. 생성자 함수 내부의 this가 생성자 함수가 생성할 인스턴스를 가리키는 이유가 바로 이것이다.
+- 인스턴스 초기화에서는 this에 바인딩되어 있는 인스턴스를 초기화한다. 즉, this에 바인딩되어 있는 인스턴스에 프로퍼티나 메서드를 추가하고 생성자 함수가 인수로 전달받은 초기값을 인스턴스 프로퍼티에 할당하여 초기화하거나 고정값을 할당한다.
 - 만약 생성자 함수 내의 원시 값 반환문이 있으면 어떻게 될까 객체를 명시적으로 반환하면 return 문에 명시한 객체가 반환되고 원시 값을 명시적으로 반환하면 원시 값 반환은 무시되고 암묵적으로 this가 반환된다.
 
+
+
+
 ## constructor와 non-constructor의 구분
+- 함수 객체는 callable이면서 constructor이거나 callable이면서 non-constructor다.
+
 - 함수가 호출되면 함수 객체의 내무 메서드[[Call]]이 호출되고 new 연산자와 함께 생성자 함수로서 호출되면 내무 메서드 [[Construct]]가 호출된다.
 - 내부 메서드 [[Call]]을 갖는 함수 객체를 callable이라 하고
 - 내부 메서드 [[Construct]]를 갖는 함수 객체를 constructor이라 하고
@@ -55,3 +63,22 @@ console.log(circle2.getDiameter()) // 20
 - 생성자 함수를 일반함수로 호출하게 되면 this는 전역 객체 window를 가르키게 된다. 따라서 생성자 함수를 생성한 뒤 일반 함수로 호출하면 생성자 함수에 있던 프로퍼티와 메서드는 전역 객체의 프로퍼티와 메서드가 된다.
 - 따라서 생성자 함수는 일반 함수와 구분하기 위해 첫 문자를 대문자로 기술하는 파스칼 케이스로 작성하는 걸 권장한다.
 - 생성자 함수와 일반함수를 구분하기 어렵기 때문에 실수는 언제나 발생된다. 이를 방지하기 이해 생성자 함수에 new.target 프로퍼티로 new 연산자를 사용하지 않았을 경우 일반함수를 호출하는게 아닌 생성자 함수를 호출하게 방지하는 방법도 있다.
+
+## new.target 
+- 생성자 함수가 new 연산자 없이 호출되는 것을 방지하기 위해 파스칼 컨벤션을 사용한다 하더라도 실수는 언제나 발생할 수 있기 때문에 ES6에서는 new.target을 지원한다.
+- new.target을 사용하면 생성자 함수를 일반함수로 호출했을 때 undefined를 반환 시킬수 있다.
+
+```javascript
+function Circle (radius){
+  if (!new.target){
+    return new Circle(radius)
+  };
+    this.x = 3
+    this.radius = radius;
+    this.getTest = function(){
+    return 3 
+  }
+  
+}
+```
+- 위와 같이 생성자 함수를 일반함수로 호출했을경우 new.target과 재귀함수를 이용해 생성자 함수로 호출되게 할 수 있다.
