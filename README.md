@@ -20,3 +20,4 @@
 > <kbd>JavaScript</kbd> [builtinObject](./README/21_builtinObject.md) <br>
 > <kbd>JavaScript</kbd> [this](./README/22_this.md) <br>
 > <kbd>JavaScript</kbd> [excutionContext](./README/23_excutionContext.md) <br>
+> <kbd>JavaScript</kbd> [closure](./README/24_closure.md) <br>
