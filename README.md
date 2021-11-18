@@ -17,9 +17,15 @@
 > <kbd>JavaScript</kbd> [함수와 일급 객체](./README/18_functionFirstObject.md) <br>
 > <kbd>JavaScript</kbd> [프로토타입](./README/19_prototype.md) <br>
 > <kbd>JavaScript</kbd> [Strict Mode](./README/20_strictMode.md) <br>
-> <kbd>JavaScript</kbd> [builtinObject](./README/21_builtinObject.md) <br>
+> <kbd>JavaScript</kbd> [BuiltinObject](./README/21_builtinObject.md) <br>
 > <kbd>JavaScript</kbd> [this](./README/22_this.md) <br>
 > <kbd>JavaScript</kbd> [excutionContext](./README/23_excutionContext.md) <br>
 > <kbd>JavaScript</kbd> [closure](./README/24_closure.md) <br>
 > <kbd>JavaScript</kbd> [class](./README/25_class.md) <br>
 > <kbd>JavaScript</kbd> [functionAddition](./README/26_functionAddition.md) <br>
+> <kbd>JavaScript</kbd> [array](./README/27_array.md) <br>
+> <kbd>JavaScript</kbd> [Number](./README/28_number.md) <br>
+> <kbd>JavaScript</kbd> [Math](./README/29_math.md) <br>
+> <kbd>JavaScript</kbd> [Date](./README/30_date.md) <br>
+> <kbd>JavaScript</kbd> [정규표현식](./README/31_RegExp.md) <br>
+> <kbd>JavaScript</kbd> [String](./README/32_string.md) <br>
