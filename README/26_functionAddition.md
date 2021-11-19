@@ -10,7 +10,6 @@
 <img src = "../img/chap26_1.jpg">
 
 ## 메서드
-
 - ES6 사양에서 메서드는 메서드 축약 표현으로 정의된 함수만을 의미한다.
 
 ```javascript
@@ -70,6 +69,7 @@ const create = (id, content) => {id, content } // error
 
 - 함수 몸체가 여러 개의 문으로 구성된다면 함수 몸체를 감싸는 중괄호 `{}`를 생략할 수 없다. 이때 반환값이 있다면 명시적으로 반환해야 한다.
 
+
 - 화살표 함수도 즉시 실행 함수로 사용할 수 있다.
 ```javascript
 const person = (name => ({
@@ -98,8 +98,76 @@ const arrow = (a, a) => a + a // SyntaxError
 
 
 ## this 
+- 아래 코드는 일반 함수로서 호출되는 콜백 함수의 경우다.
+```javascript
+class Prefixer {
+  constructor(prefixer){
+    this.prefixer = prefixer
+  }
+
+  add(arr) {
+    return arr.map(function (item) {
+      return this.prefixer + item
+      // TypeError
+    })
+  }
+}
+
+const prefixer = new Prefixer('-webkit-')
+console.log(prefixer.add(['transition', 'user-select']))
+
+```
+- 위 코드를 실행했을 때 기대하는 결과는 ['-webkit-transition', '-webkit-user-select']지만 this.prefix + imte 부분에 this가 가르키는 것은 일반함수이기 때문에 전역 객체를 가르키지만 class는 strict mode가 적용되 undefined가 바인딩 되므로 콜백 함수 내부의 this에는 undefined가 바인딩된다.
+- ES6 이전에는 this를 회피시킨 후에 콜백함수 내부에서 사용했지만 화살표 함수로 해결할 수 있다.
+
+```javascript
+class Prefix {
+  constructor(prefix) {
+    this.prefixer = prefix;
+  }
+
+  add(arr) {
+    return arr.map((item) => this.prefixer + item);
+    // [ '-webkit-transition', '-webkit-user-select' ]
+  }
+}
+const prefix = new Prefix("-webkit-");
+console.log(prefix.add(["transition", "user-select"]));
+```
+
 - 화살표 함수는 함수 자체의 this 바인딩을 갖지 않는다. 따라서 화살표 함수 내부에서 this를 참조하면 상위 스코프의 this를 그대로 참조한다. 이를 lexical this라 한다.
+- 결국 화살표 함수 this 바인딩은 상위 스코프중 화살표 함수가 아닌 함수의 this를 참조하며 없을 시 전역 객체까지 가리킨다.
+- 메서드를 정의할 때는 호출한 객체를 this로 바인딩 되어야 하기 때문에 ES6 메서드 축약표현으로 정의해야한다.
 
-// 다음 시간에
+
+## arguments 
+- 화살표 함수는 함수 자체의 arguments 바인딩을 갖지 않는다. 따라서 화살표 함수 내부에서 arguments를 참조하면 this와 마찬가지로 상위 스코프의 arguments를 참조한다
+- 따라서 화살표 함수로 가변 인자 함수를 구현할 때 는 반드시 Rest 파라미터를 사용해야 한다.
+
+## Rest 파라미터
+- Rest 파리미터는 매개변수 이름 앞에 세게의 점 ...을 붙여서 정의한 매개변수를 의미한다. Rest 파라미터는 함수에 전달된 인수들의 목록을 배열로 전달 받는다.
+
+```javascript
+function foo(...rest){
+  console.log(rest) // [ 1, 2, 3, 4, 5]
+}
+foo(1,2,3,4,5)
+
+function foo(param, ...rest){
+  console.log(param) // 1
+  console.log(rest) // [ 2, 3, 4, 5]
+}
+foo(1,2,3,4,5)
 
 
+```
+- Rest 파리미터는 이름 그대로 먼저 선언된 매개변수에 할당된 인수를 제외한 나머지 인수들로 구성된 배열이 할당된다. 따라서 Rest 파라미터는 반드시 마지막 파라미터이어야 한다.
+
+- Rest 파라미터는 함수 정의 시 선언한 매개변수 개수를 나타내는 함수 객체의 length 프로퍼티에 영향을 주지 않는다.
+
+
+## Rest 파리미터와 arguments 객체
+- 이전 ES6이전에는 arguments 객체는 배열이 아닌 유사 배열 객체이므로 배열 매서드를 사용하려면 function.prototype.call/apply 메서드를 사용해 arguments 객체를 배열로 변환해야 하는 번거러움이 있었다.
+- ES6에서는 가변 인자 함수의 인수 목록을 배열로 직접 전달받을 수 있다. 이를 통해 유사 배열 객체인 arguments 객체를 배열로 변환하는 번거로움을 피할 수 있다.
+- 함수와 ES6 메서드는 Rest 파라미터와 arguments 객체를 모두 사용할 수 있다. 하지만 화살표 함수는 함수 자체의 argumensts 객체를 갖지 않는다. 
+- Rest 파라미터 또한 기본값을 지정할 수 있다. ...rest = []
