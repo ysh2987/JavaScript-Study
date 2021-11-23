@@ -242,4 +242,48 @@
 - Element.prototype.removeAtrribute(attributeName) : 어트리뷰트 삭제
 
 ## HTML 어트리뷰트 vs DOM 프로퍼티
-- 다음시간에!
+- HTML 어트리뷰트 : HTML 요소의 초기 상태를 지정하는 것이다. 즉, HTML 어트리뷰트 값은 HTML 요소의 초기 상태를 의미하며 이는 변하지 않는다.
+- 정리하자면 페이지가 로드 되었을때 기본값으로 설정된 어트리뷰트다.
+
+- DOM 프로퍼티 : DOM 프로퍼티는 사용자의 의해 특정 요소 노드에 어트리뷰트가 바뀌는걸 실시간으로 최신상태를 관리한다.
+
+- 어트리뷰트 노드 : HTML 어트리뷰트로 지정한 HTML 요소의 초기 상태는 어트리뷰트 노드에서 관리한다. 
+- 어트리뷰트 노드가 관리하는 초기 상태 값을 취득하거나 변경하려면 getAttribute / setAttribute 메서드를 사용한다. 
+
+## data 어트리뷰트와 dataset 프로퍼티
+- data 어트리뷰트와 dataset 프로퍼티를 사용하면 HTML 요소에 정의한 사용자 정의 어트리뷰트와 자바스크립트 간에 데이터를 교환할 수 있다.
+- data 어트리뷰트는 data-user-id, data-role과 같이 data- 접두사 다음에 임의의 이름을 붙여 사용한다.
+- data 어트리뷰트의 값은 HTMLElement.dataset 프로퍼티로 취득하고 DOMStringMap 객체를 반환한다.
+- DOMStringMap 객체는 data 어트리뷰트의 data- 접두사 다음에 붙인 임의의 이름을 카멜 케이스로 변환한 프로퍼티를 가지고 있다.
+
+## 스타일
+- HTMLElement.prototype.style 프로퍼티는 setter와 getter 모두 존재하는 접근자 프로퍼티로서 요소 노드의 인라인 스타일을 취득하거나 추가 또는 변경한다.
+
+```javascript
+$div.style.backgroundColor = 'yellow'
+$div.style.width = '100px'
+```
+- 위처럼 기존 css에 케밥케이스가 아닌 카멜케이스로 작성해야한다.
+- 단위가 필요한 요소들은 반드시 단위를 붙여줘야 한다.
+
+## 클래스 조작
+- class 어트리뷰트에 대응하는 DOM프로퍼티는 className과 classList가 있다.
+
+## className
+- Element.prototype.className 프로퍼티는 getter와 setter 모두 존재하는 접근자 프로퍼티로서 HTML 요소의 class 어트리뷰트 값을 취득하거나 변경한다.
+- className 프로퍼티는 문자열을 반환하므로 공백으로 구분된 여러 개의 클래스를 반환하는 경우 다루기가 불편한다.
+
+## classList
+- Element.prototype.classList 프로퍼티는 class 어트리뷰트의 정보를 담음 DOMTokenList 객체를 반환한다.
+- DOMTokenList 객체는 아래와 같이 유용한 메서드들을 제공한다.
+  - add(..className) : 인수로 전달한 1개 이상의 문자열을 class 어트리뷰트 값으로 추가한다.
+  - remove(..className) : 인수로 전달한 1개 이상의 문자열과 일치하는 클래스를 class 어트리뷰트에서 삭제한다. 없을 경우 에러 없이 무시된다.
+  - item(index) : 인수로 전달한 index에 해당하는 클래스를 반환한다.
+  - contains(className) : 인수로 전달한 문자열과 일치하는 class 어트리뷰트에 포함되어 있는지 확인한다.(includes와 유사)
+  - replace(old, new) : 첫 번째 인수로 전달한 문자열을 두 번째 인수로 전달한 문자열로 변경한다.
+  - toggle(className[force]) : 인수로 전달한 문자열과 일치하는 클래스가 존재하면 제거하고, 존재하지 않으면 추가한다. 두 번쨰 인수로 불리언 값을 전달하여 true이면 첫 번째 인수로 전달받은 문자열을 추가하고, false면 강제로 전달받은 문자열을 제거한다.
+  - $box.classList.toggle('foo', true)
+
+## 요소에 적용되어 있는 CSS 스타일 참조
+- style 프로퍼티는 인라인 스타일만 반환한다. 따라서 클래스를 적용한 스타일이나 상속을 통해 암묵적으로 적용된 스타일은 style 프로퍼티로 참조할 수 없다. 모든 요소를 참조해야 할 경우 getComputedStyle 메서드를 사용한다.
+- window.getComputedStyle(element(pseudo))  : 첫번째 인수로 요소를, 두번째 인수로 after와 before를 지정할수 있다. 생략이 가능하다.
