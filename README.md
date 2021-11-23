@@ -30,5 +30,5 @@
 > <kbd>JavaScript</kbd> [정규표현식](./README/31_RegExp.md) <br>
 > <kbd>JavaScript</kbd> [String](./README/32_string.md) <br>
 > <kbd>JavaScript</kbd> [Browser](./README/38_browser.md) <br>
-> <kbd>JavaScript</kbd> [DOM](./README/39_DOM.md) <br>
+> <kbd>JavaScript</kbd> [DOM](./README/39_dom.md) <br>
 
