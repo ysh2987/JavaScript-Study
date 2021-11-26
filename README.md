@@ -30,5 +30,8 @@
 > <kbd>JavaScript</kbd> [정규표현식](./README/31_RegExp.md) <br>
 > <kbd>JavaScript</kbd> [String](./README/32_string.md) <br>
 > <kbd>JavaScript</kbd> [Browser](./README/38_browser.md) <br>
-> <kbd>JavaScript</kbd> [DOM](./README/39_dom.md) <br>
+> <kbd>JavaScript</kbd> [Event](./README/39_event.md) <br>
+> <kbd>JavaScript</kbd> [DOM](./README/40_dom.md) <br>
+> > <kbd>JavaScript</kbd> [Timer](./README/41_timer.md) <br>
+
 
