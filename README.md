@@ -33,5 +33,7 @@
 > <kbd>JavaScript</kbd> [DOM](./README/39_dom.md) <br>
 > <kbd>JavaScript</kbd> [Event](./README/40_event.md) <br>
 > <kbd>JavaScript</kbd> [Timer](./README/41_timer.md) <br>
+> <kbd>JavaScript</kbd> [비동기](./README/42_asynchronous.md) <br>
+> <kbd>JavaScript</kbd> [Ajax](./README/43_Ajax.md) <br>
 
 
