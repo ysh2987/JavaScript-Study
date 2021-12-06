@@ -35,5 +35,7 @@
 > <kbd>JavaScript</kbd> [Timer](./README/41_timer.md) <br>
 > <kbd>JavaScript</kbd> [비동기](./README/42_asynchronous.md) <br>
 > <kbd>JavaScript</kbd> [Ajax](./README/43_Ajax.md) <br>
+> <kbd>JavaScript</kbd> [REST API](./README/44_RESTAPI.md) <br>
+> <kbd>JavaScript</kbd> [Promise](./README/45_promise.md) <br>
 
 
